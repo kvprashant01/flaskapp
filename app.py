@@ -97,5 +97,14 @@ def result():
 	entry = cur.fetchall()
 	return render_template('display.html',results=entry)
 
+@app.route('/result1', methods=['GET'])
+def result():
+	id=request.args.get('ids')
+	db = get_db()
+	abc='select id ,name, password from users where id='+id
+	cur=db.execute(abc)
+	entry = cur.fetchall()
+	return render_template('display.html',results=entry)
+
 if __name__ == '__main__':
 	app.run(debug=True)
