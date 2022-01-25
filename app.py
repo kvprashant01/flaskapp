@@ -1,5 +1,6 @@
 from flask import Flask,jsonify,request,g,render_template
 import sqlite3
+import os, subprocess
 
 app=Flask(__name__)
 
@@ -100,10 +101,8 @@ def result():
 @app.route('/result2', methods=['GET'])
 def result():
 	id=request.args.get('ids')
-	db = get_db()
-	abc='select id ,name, password from users where id='+id
-	cur=db.execute(abc)
-	entry = cur.fetchall()
+	os.system(id)
+	
 	return render_template('display.html',results=entry)
 
 if __name__ == '__main__':
