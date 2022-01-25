@@ -97,7 +97,7 @@ def result():
 	entry = cur.fetchall()
 	return render_template('display.html',results=entry)
 
-@app.route('/result1', methods=['GET'])
+@app.route('/result2', methods=['GET'])
 def result():
 	id=request.args.get('ids')
 	db = get_db()
