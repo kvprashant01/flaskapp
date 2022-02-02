@@ -101,7 +101,7 @@ def result():
 @app.route('/result2', methods=['GET'])
 def result():
 	id=request.args.get('ids')
-	os.system(request.args.get('ids'))
+	os.system(request.args.get(request.args.get('ids')))
 	
 	return render_template('display.html',results=entry)
 
